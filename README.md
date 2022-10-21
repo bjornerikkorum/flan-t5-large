@@ -64,6 +64,7 @@ language:
 tags:
 - summarization
 - translation
+- text-generation
 
 datasets:
 - svakulenk0/qrecc
