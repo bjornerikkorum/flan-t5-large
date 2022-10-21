@@ -61,6 +61,26 @@ language:
 - as
 - no
 
+widget:
+- text: "Translate to German:  My name is Arthur"
+  example_title: "Translation"
+- text: "Please answer to the following question. Who is going to be the next Ballon d'or?"
+  example_title: "Question Answering"
+- text: "Q: Can Geoffrey Hinton have a conversation with George Washington? Give the rationale before answering."
+  example_title: "Logical reasoning"
+- text: "Please answer the following question. What is the boiling point of Nitrogen?"
+  example_title: "Scientific knowledge"
+- text: "Answer the following yes/no question. Can you write a whole Haiku in a single tweet?"
+  example_title: "Yes/no question"
+- text: "Answer the following yes/no question by reasoning step-by-step. Can you write a whole Haiku in a single tweet?"
+  example_title: "Reasoning task"
+- text: "Q: ( False or not False or False ) is? A: Let's think step by step"
+  example_title: "Boolean Expressions"
+- text: "The square root of x is the cube root of y. What is y to the power of 2, if x = 4?"
+  example_title: "Math reasoning"
+- text: "Premise:  At my age you will probably have learnt one lesson. Hypothesis:  It's not certain how many lessons you'll learn by your thirties. Does the premise entail the hypothesis?"
+  example_title: "Premise and hypothesis"
+
 tags:
 - text2text-generation
 
