@@ -68,7 +68,7 @@ tags:
 datasets:
 - svakulenk0/qrecc
 - taskmaster2
-- djaym7/wiki_dialog 
+- djaym7/wiki_dialog
 - deepmind/code_contests
 - lambada
 - gsm8k
@@ -87,6 +87,7 @@ license: apache-2.0
 
 #  Table of Contents
 
+0. [TL;DR](#TL;DR)
 1. [Model Details](#model-details)
 2. [Usage](#usage)
 3. [Uses](#uses)
@@ -96,28 +97,25 @@ license: apache-2.0
 7. [Environmental Impact](#environmental-impact)
 8. [Citation](#citation)
 9. [Model Card Authors](#model-card-authors)
-10. [How To Get Started With the Model](#how-to-get-started-with-the-model)
+
+# TL;DR
+
+>  Flan-PaLM 540B achieves state-of-the-art performance on several benchmarks, such as 75.2% on five-shot MMLU. We also publicly release Flan-T5 checkpoints,1 which achieve strong few-shot performance even compared to much larger models, such as PaLM 62B. Overall, instruction finetuning is a general method for improving the performance and usability of pretrained language models.
 
 # Model Details
 
 ## Model Description
 
-The developers of the Text-To-Text Transfer Transformer (T5) [write](https://ai.googleblog.com/2020/02/exploring-transfer-learning-with-t5.html): 
 
-> With T5, we propose reframing all NLP tasks into a unified text-to-text-format where the input and output are always text strings, in contrast to BERT-style models that can only output either a class label or a span of the input. Our text-to-text framework allows us to use the same model, loss function, and hyperparameters on any NLP task.
-
-T5-Base is the checkpoint with 220 million parameters. 
-
-- **Developed by:** Hyung Won Chung, Le Hou, Shayne Longpre, Barret Zoph, Yi Tay, William Fedus, Eric Li, Xuezhi Wang, Mostafa Dehghani, Siddhartha Brahma, Albert Webson, Shixiang Shane, Gu Zhuyun, Dai Mirac, Suzgun Xinyun, Chen Aakanksha, Chowdhery Sharan, Narang Gaurav, Mishra Adams, Yu Vincent, Zhao Yanping, Huang Andrew, Dai Hongkun, Yu Slav Petrov, Ed H. Chi, Jeff Dean, Jacob Devlin, Adam Roberts; Denny Zhou, Quoc V. Le, Jason Wei∗ See [associated paper](https://arxiv.org/pdf/2210.11416.pdf) and [GitHub repo](https://github.com/google-research/t5x/blob/main/docs/models.md#flan-t5-checkpoints)
 - **Model type:** Language model
-- **Language(s) (NLP):** English, French, Romanian, German
+- **Language(s) (NLP):** English, Spanish, Japanese, Persian, Hindi, French, Chinese, Bengali, Gujarati, German, Telugu, Italian, Arabic, Polish, Tamil, Marathi, Malayalam, Oriya, Panjabi, Portuguese, Urdu, Galician, Hebrew, Korean, Catalan, Thai, Dutch, Indonesian, Vietnamese, Bulgarian, Filipino, Central Khmer, Lao, Turkish, Russian, Croatian, Swedish, Yoruba, Kurdish, Burmese, Malay, Czech, Finnish, Somali, Tagalog, Swahili, Sinhala, Kannada, Zhuang, Igbo, Xhosa, Romanian, Haitian, Estonian, Slovak, Lithuanian, Greek, Nepali, Assamese, Norwegian
 - **License:** Apache 2.0
-- **Related Models:** [All T5 Checkpoints](https://huggingface.co/models?search=t5)
+- **Related Models:** [All FLAN-T5 Checkpoints](https://huggingface.co/models?search=flan-t5)
+- **Related Original Models:** [All Original FLAN-T5 Checkpoints](https://github.com/google-research/t5x/blob/main/docs/models.md#flan-t5-checkpoints)
 - **Resources for more information:**
-  - [Research paper](https://jmlr.org/papers/volume21/20-074/20-074.pdf)
-  - [Google's T5 Blog Post](https://ai.googleblog.com/2020/02/exploring-transfer-learning-with-t5.html) 
-  - [GitHub Repo](https://github.com/google-research/text-to-text-transfer-transformer)
-  - [Hugging Face T5 Docs](https://huggingface.co/docs/transformers/model_doc/t5)
+  - [Research paper](https://arxiv.org/pdf/2210.11416.pdf)
+  - [GitHub Repo](https://github.com/google-research/t5x)
+  - [Hugging Face FLAN-T5 Docs (Similar to T5) ](https://huggingface.co/docs/transformers/model_doc/t5)
 
 # Usage
 
