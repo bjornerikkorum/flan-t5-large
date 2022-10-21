@@ -52,7 +52,7 @@ Find below some example scripts on how to use the model in `transformers`:
 
 ## Using the Pytorch model
 
-### Running the model on the CPU
+### Running the model on a CPU
 
 <details>
 <summary> Click to expand </summary>
