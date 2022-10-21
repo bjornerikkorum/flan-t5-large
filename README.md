@@ -62,7 +62,7 @@ language:
 - no
 
 tags:
-- text-generation
+- text2text-generation
 
 datasets:
 - svakulenk0/qrecc
