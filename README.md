@@ -303,9 +303,6 @@ Carbon emissions can be estimated using the [Machine Learning Impact calculator]
 }
 ```
 
-**APA:**
-- Raffel, C., Shazeer, N., Roberts, A., Lee, K., Narang, S., Matena, M., ... & Liu, P. J. (2020). Exploring the limits of transfer learning with a unified text-to-text transformer. J. Mach. Learn. Res., 21(140), 1-67.
-
 # Model Card Authors
 
 This model card was written by the team at Hugging Face.
