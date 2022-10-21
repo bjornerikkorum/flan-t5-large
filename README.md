@@ -62,9 +62,7 @@ language:
 - no
 
 tags:
-- summarization
-- translation
-- text-generation
+- text2text-generation
 
 datasets:
 - svakulenk0/qrecc
@@ -101,7 +99,7 @@ license: apache-2.0
 
 # TL;DR
 
-If you already know T5, FLAN-T5 is just better at everything. For the same number of parameters, these models have been fine-tuned on more than 1000 additional tasks covering also more languages.  
+If you already know T5, FLAN-T5 is just better at everything. For the same number of parameters, these models have been fine-tuned on more than 1000 additional tasks covering also more languages. 
 As mentioned in the first few lines of the abstract : 
 >  Flan-PaLM 540B achieves state-of-the-art performance on several benchmarks, such as 75.2% on five-shot MMLU. We also publicly release Flan-T5 checkpoints,1 which achieve strong few-shot performance even compared to much larger models, such as PaLM 62B. Overall, instruction finetuning is a general method for improving the performance and usability of pretrained language models.
 
@@ -155,7 +153,7 @@ print(tokenizer.decode(outputs[0]))
 <summary> Click to expand </summary>
 
 ```python
-
+# pip install accelerate
 from transformers import T5Tokenizer, T5ForConditionalGeneration
 
 tokenizer = T5Tokenizer.from_pretrained("google/flan-t5-large")
@@ -178,6 +176,7 @@ print(tokenizer.decode(outputs[0]))
 <summary> Click to expand </summary>
 
 ```python
+# pip install accelerate
 import torch
 from transformers import T5Tokenizer, T5ForConditionalGeneration
 
@@ -199,7 +198,7 @@ print(tokenizer.decode(outputs[0]))
 <summary> Click to expand </summary>
 
 ```python
-# pip install bitsandbytes
+# pip install bitsandbytes accelerate
 from transformers import T5Tokenizer, T5ForConditionalGeneration
 
 tokenizer = T5Tokenizer.from_pretrained("google/flan-t5-large")
@@ -309,7 +308,3 @@ Carbon emissions can be estimated using the [Machine Learning Impact calculator]
   copyright = {Creative Commons Attribution 4.0 International}
 }
 ```
-
-# Model Card Authors
-
-This model card was written by the team at Hugging Face.
