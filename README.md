@@ -100,7 +100,8 @@ license: apache-2.0
 
 # TL;DR
 
-If you already know T5, FLAN-T5 is just better at everything! It is a **bigger model (+ XX parameters)** was trained on **more tasks (+ XX )**, **more data (+ XX tokens)** and **more languags (+ XX languages)**. As mentioned in the first few lines of the abstract : 
+If you already know T5, FLAN-T5 is just better at everything. 
+As mentioned in the first few lines of the abstract : 
 >  Flan-PaLM 540B achieves state-of-the-art performance on several benchmarks, such as 75.2% on five-shot MMLU. We also publicly release Flan-T5 checkpoints,1 which achieve strong few-shot performance even compared to much larger models, such as PaLM 62B. Overall, instruction finetuning is a general method for improving the performance and usability of pretrained language models.
 
 **Disclaimer**: Content from **this** model card has been written by the Hugging Face team, and parts of it were copy pasted from the [T5 model card](https://huggingface.co/t5-large).
