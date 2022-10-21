@@ -1,16 +1,89 @@
 ---
 language: 
 - en
+- sp
+- ja
+- pe
+- hi
+- fr
+- ch
+- be
+- gu
+- ge
+- te
+- it
+- ar
+- po
+- ta
+- ma
+- ma
+- or
+- pa
+- po
+- ur
+- ga
+- he
+- ko
+- ca
+- th
+- du
+- in
+- vi
+- bu
+- fi
+- ce
+- la
+- tu
+- ru
+- cr
+- sw
+- yo
+- ku
+- bu
+- ma
+- cz
+- fi
+- so
+- ta
+- sw
+- si
+- ka
+- zh
+- ig
+- xh
+- ro
+- ha
+- es
+- sl
+- li
+- gr
+- ne
+- as
+- no
+
 tags:
 - summarization
 - translation
+
+datasets:
+- librispeech_asr
+- svakulenk0/qrecc
+- taskmaster2
+- djaym7/wiki_dialog
+- deepmind/code_contests
+- lambada
+- gsm8k
+- aqua_rat
+- esnli
+- quasc
+- qed
 
 license: apache-2.0
 ---
 
 # Model Card for FLAN-T5 large
 
-![model image](https://s3.amazonaws.com/moonup/production/uploads/1666360754614-62441d1d9fdefb55a0b7d12c.png)
+![model image](https://s3.amazonaws.com/moonup/production/uploads/1666363435475-62441d1d9fdefb55a0b7d12c.png)
 
 #  Table of Contents
 
@@ -123,7 +196,7 @@ print(tokenizer.decode(outputs[0]))
 <summary> Click to expand </summary>
 
 ```python
-# pip install bistandbytes
+# pip install bitsandbytes
 from transformers import T5Tokenizer, T5ForConditionalGeneration
 
 tokenizer = T5Tokenizer.from_pretrained("google/flan-t5-large")
@@ -142,11 +215,11 @@ print(tokenizer.decode(outputs[0]))
 
 ## Direct Use and Downstream Use
 
-The developers write in a [blog post](https://ai.googleblog.com/2020/02/exploring-transfer-learning-with-t5.html) that the model: 
+The authors write in [the original paper's model card](https://arxiv.org/pdf/2210.11416.pdf) that: 
 
-> Our text-to-text framework allows us to use the same model, loss function, and hyperparameters on any NLP task, including machine translation, document summarization, question answering, and classification tasks (e.g., sentiment analysis). We can even apply T5 to regression tasks by training it to predict the string representation of a number instead of the number itself.
+> The primary use is research on language models, including: research on zero-shot NLP tasks and in-context few-shot learning NLP tasks, such as reasoning, and question answering; advancing fairness and safety research, and understanding limitations of current large language models
 
-See the [blog post](https://ai.googleblog.com/2020/02/exploring-transfer-learning-with-t5.html) and [research paper](https://jmlr.org/papers/volume21/20-074/20-074.pdf) for further details.
+See the [research paper](https://arxiv.org/pdf/2210.11416.pdf) for further details.
 
 ## Out-of-Scope Use
 
@@ -154,58 +227,37 @@ More information needed.
 
 # Bias, Risks, and Limitations
 
-More information needed.
+The information below in this section are copied from the model's [official model card](https://arxiv.org/pdf/2210.11416.pdf):
 
-## Recommendations
+> Language models, including Flan-T5, can potentially be used for language generation in a harmful way, according to Rae et al. (2021). Flan-T5 should not be used directly in any application, without a prior assessment of safety and fairness concerns specific to the application.
 
-More information needed.
+## Ethical considerations and risks
+
+> Flan-T5 is fine-tuned on a large corpus of text data that was not filtered for explicit content or assessed for existing biases. As a result the model itself is potentially vulnerable to generating equivalently inappropriate content or replicating inherent biases in the underlying data.
+
+## Known Limitations
+
+> Flan-T5 has not been tested in real world applications.
+
+## Sensitive Use:
+
+> Flan-T5 should not be applied for any unacceptable use cases, e.g., generation of abusive speech.
 
 # Training Details
 
 ## Training Data
 
-The model is pre-trained on the [Colossal Clean Crawled Corpus (C4)](https://www.tensorflow.org/datasets/catalog/c4), which was developed and released in the context of the same [research paper](https://jmlr.org/papers/volume21/20-074/20-074.pdf) as T5.
+The model was trained on a mixture of tasks, that includes the tasks described in the table below (from the original paper, figure 2):
 
-The model was pre-trained on a on a **multi-task mixture of unsupervised (1.) and supervised tasks (2.)**.
-Thereby, the following datasets were being used for (1.) and (2.):
+![table.png](https://s3.amazonaws.com/moonup/production/uploads/1666363265279-62441d1d9fdefb55a0b7d12c.png)
 
-1. **Datasets used for Unsupervised denoising objective**:
-
-- [C4](https://huggingface.co/datasets/c4)
-- [Wiki-DPR](https://huggingface.co/datasets/wiki_dpr)
-
-
-2. **Datasets used for Supervised text-to-text language modeling objective**
-
-- Sentence acceptability judgment
-  - CoLA [Warstadt et al., 2018](https://arxiv.org/abs/1805.12471)
-- Sentiment analysis 
-  - SST-2 [Socher et al., 2013](https://nlp.stanford.edu/~socherr/EMNLP2013_RNTN.pdf)
-- Paraphrasing/sentence similarity
-  - MRPC [Dolan and Brockett, 2005](https://aclanthology.org/I05-5002)
-  - STS-B [Ceret al., 2017](https://arxiv.org/abs/1708.00055)
-  - QQP [Iyer et al., 2017](https://quoradata.quora.com/First-Quora-Dataset-Release-Question-Pairs)
-- Natural language inference
-  - MNLI [Williams et al., 2017](https://arxiv.org/abs/1704.05426)
-  - QNLI [Rajpurkar et al.,2016](https://arxiv.org/abs/1606.05250)
-  - RTE [Dagan et al., 2005](https://link.springer.com/chapter/10.1007/11736790_9) 
-  - CB [De Marneff et al., 2019](https://semanticsarchive.net/Archive/Tg3ZGI2M/Marneffe.pdf)
-- Sentence completion
-  - COPA [Roemmele et al., 2011](https://www.researchgate.net/publication/221251392_Choice_of_Plausible_Alternatives_An_Evaluation_of_Commonsense_Causal_Reasoning)
-- Word sense disambiguation
-  - WIC [Pilehvar and Camacho-Collados, 2018](https://arxiv.org/abs/1808.09121)
-- Question answering
-  - MultiRC [Khashabi et al., 2018](https://aclanthology.org/N18-1023)
-  - ReCoRD [Zhang et al., 2018](https://arxiv.org/abs/1810.12885)
-  - BoolQ [Clark et al., 2019](https://arxiv.org/abs/1905.10044)
 
 ## Training Procedure
 
-In their [abstract](https://jmlr.org/papers/volume21/20-074/20-074.pdf), the model developers write: 
+According to the model card from the [original paper](https://arxiv.org/pdf/2210.11416.pdf):
 
-> In this paper, we explore the landscape of transfer learning techniques for NLP by introducing a unified framework that converts every language problem into a text-to-text format. Our systematic study compares pre-training objectives, architectures, unlabeled datasets, transfer approaches, and other factors on dozens of language understanding tasks. 
+> These models are based on pretrained T5 (Raffel et al., 2020) and fine-tuned with instructions for better zero-shot and few-shot performance. There is one fine-tuned Flan model per T5 model size.
 
-The framework introduced, the T5 framework, involves a training procedure that brings together the approaches studied in the paper. See the [research paper](https://jmlr.org/papers/volume21/20-074/20-074.pdf) for further details.
 
 # Evaluation
 
