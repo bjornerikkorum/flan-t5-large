@@ -45,11 +45,99 @@ T5-Base is the checkpoint with 220 million parameters.
   - [Google's T5 Blog Post](https://ai.googleblog.com/2020/02/exploring-transfer-learning-with-t5.html) 
   - [GitHub Repo](https://github.com/google-research/text-to-text-transfer-transformer)
   - [Hugging Face T5 Docs](https://huggingface.co/docs/transformers/model_doc/t5)
- 
+
 # Usage
 
 Find below some example scripts on how to use the model in `transformers`:
- 
+
+## Using the Pytorch model
+
+### Running the model on the CPU
+
+<details>
+<summary> Click to expand </summary>
+
+```python
+
+from transformers import T5Tokenizer, T5ForConditionalGeneration
+
+tokenizer = T5Tokenizer.from_pretrained("google/flan-t5-large")
+model = T5ForConditionalGeneration.from_pretrained("google/flan-t5-large")
+
+input_text = "translate English to German: How old are you?"
+input_ids = tokenizer.encode(input_text, return_tensors="pt").input_ids
+
+outputs = model.generate(input_ids)
+print(tokenizer.decode(outputs[0]))
+```
+
+</details>
+
+### Running the model on a GPU
+
+<details>
+<summary> Click to expand </summary>
+
+```python
+
+from transformers import T5Tokenizer, T5ForConditionalGeneration
+
+tokenizer = T5Tokenizer.from_pretrained("google/flan-t5-large")
+model = T5ForConditionalGeneration.from_pretrained("google/flan-t5-large", device_map="auto")
+
+input_text = "translate English to German: How old are you?"
+input_ids = tokenizer.encode(input_text, return_tensors="pt").input_ids.to("cuda")
+
+outputs = model.generate(input_ids)
+print(tokenizer.decode(outputs[0]))
+```
+
+</details>
+
+### Running the model on a GPU using different precisions
+
+#### FP16
+
+<details>
+<summary> Click to expand </summary>
+
+```python
+import torch
+from transformers import T5Tokenizer, T5ForConditionalGeneration
+
+tokenizer = T5Tokenizer.from_pretrained("google/flan-t5-large")
+model = T5ForConditionalGeneration.from_pretrained("google/flan-t5-large", device_map="auto", torch_dtype=torch.float16)
+
+input_text = "translate English to German: How old are you?"
+input_ids = tokenizer.encode(input_text, return_tensors="pt").input_ids.to("cuda")
+
+outputs = model.generate(input_ids)
+print(tokenizer.decode(outputs[0]))
+```
+
+</details>
+
+#### INT8
+
+<details>
+<summary> Click to expand </summary>
+
+```python
+# pip install bistandbytes
+from transformers import T5Tokenizer, T5ForConditionalGeneration
+
+tokenizer = T5Tokenizer.from_pretrained("google/flan-t5-large")
+model = T5ForConditionalGeneration.from_pretrained("google/flan-t5-large", device_map="auto", load_in_8bit=True)
+
+input_text = "translate English to German: How old are you?"
+input_ids = tokenizer.encode(input_text, return_tensors="pt").input_ids.to("cuda")
+
+outputs = model.generate(input_ids)
+print(tokenizer.decode(outputs[0]))
+```
+
+</details>
+
 # Uses
 
 ## Direct Use and Downstream Use
@@ -146,15 +234,22 @@ Carbon emissions can be estimated using the [Machine Learning Impact calculator]
 **BibTeX:**
 
 ```bibtex
-@article{2020t5,
-  author  = {Colin Raffel and Noam Shazeer and Adam Roberts and Katherine Lee and Sharan Narang and Michael Matena and Yanqi Zhou and Wei Li and Peter J. Liu},
-  title   = {Exploring the Limits of Transfer Learning with a Unified Text-to-Text Transformer},
-  journal = {Journal of Machine Learning Research},
-  year    = {2020},
-  volume  = {21},
-  number  = {140},
-  pages   = {1-67},
-  url     = {http://jmlr.org/papers/v21/20-074.html}
+@misc{https://doi.org/10.48550/arxiv.2210.11416,
+  doi = {10.48550/ARXIV.2210.11416},
+  
+  url = {https://arxiv.org/abs/2210.11416},
+  
+  author = {Chung, Hyung Won and Hou, Le and Longpre, Shayne and Zoph, Barret and Tay, Yi and Fedus, William and Li, Eric and Wang, Xuezhi and Dehghani, Mostafa and Brahma, Siddhartha and Webson, Albert and Gu, Shixiang Shane and Dai, Zhuyun and Suzgun, Mirac and Chen, Xinyun and Chowdhery, Aakanksha and Narang, Sharan and Mishra, Gaurav and Yu, Adams and Zhao, Vincent and Huang, Yanping and Dai, Andrew and Yu, Hongkun and Petrov, Slav and Chi, Ed H. and Dean, Jeff and Devlin, Jacob and Roberts, Adam and Zhou, Denny and Le, Quoc V. and Wei, Jason},
+  
+  keywords = {Machine Learning (cs.LG), Computation and Language (cs.CL), FOS: Computer and information sciences, FOS: Computer and information sciences},
+  
+  title = {Scaling Instruction-Finetuned Language Models},
+  
+  publisher = {arXiv},
+  
+  year = {2022},
+  
+  copyright = {Creative Commons Attribution 4.0 International}
 }
 ```
 
