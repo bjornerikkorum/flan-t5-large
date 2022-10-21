@@ -68,7 +68,7 @@ tags:
 datasets:
 - svakulenk0/qrecc
 - taskmaster2
-- djaym7/wiki_dialog
+- djaym7/wiki_dialog 
 - deepmind/code_contests
 - lambada
 - gsm8k
@@ -76,6 +76,7 @@ datasets:
 - esnli
 - quasc
 - qed
+
 
 license: apache-2.0
 ---
@@ -310,29 +311,3 @@ Carbon emissions can be estimated using the [Machine Learning Impact calculator]
 # Model Card Authors
 
 This model card was written by the team at Hugging Face.
-
-# How to Get Started with the Model
-
-Use the code below to get started with the model.
-
-<details>
-<summary> Click to expand </summary>
-
-```python
-from transformers import T5Tokenizer, T5Model
-
-tokenizer = T5Tokenizer.from_pretrained("t5-base")
-model = T5Model.from_pretrained("t5-base")
-
-input_ids = tokenizer(
-    "Studies have been shown that owning a dog is good for you", return_tensors="pt"
-).input_ids  # Batch size 1
-decoder_input_ids = tokenizer("Studies show that", return_tensors="pt").input_ids  # Batch size 1
-
-# forward pass
-outputs = model(input_ids=input_ids, decoder_input_ids=decoder_input_ids)
-last_hidden_states = outputs.last_hidden_state
-```
-
-See the [Hugging Face T5](https://huggingface.co/docs/transformers/model_doc/t5#transformers.T5Model) docs and a [Colab Notebook](https://colab.research.google.com/github/google-research/text-to-text-transfer-transformer/blob/main/notebooks/t5-trivia.ipynb) created by the model developers for more examples.
-</details>
