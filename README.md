@@ -66,7 +66,6 @@ tags:
 - translation
 
 datasets:
-- librispeech_asr
 - svakulenk0/qrecc
 - taskmaster2
 - djaym7/wiki_dialog
