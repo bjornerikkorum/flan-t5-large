@@ -15,14 +15,15 @@ license: apache-2.0
 #  Table of Contents
 
 1. [Model Details](#model-details)
-2. [Uses](#uses)
-3. [Bias, Risks, and Limitations](#bias-risks-and-limitations)
-4. [Training Details](#training-details)
-5. [Evaluation](#evaluation)
-6. [Environmental Impact](#environmental-impact)
-7. [Citation](#citation)
-8. [Model Card Authors](#model-card-authors)
-9. [How To Get Started With the Model](#how-to-get-started-with-the-model)
+2. [Usage](#usage)
+3. [Uses](#uses)
+4. [Bias, Risks, and Limitations](#bias-risks-and-limitations)
+5. [Training Details](#training-details)
+6. [Evaluation](#evaluation)
+7. [Environmental Impact](#environmental-impact)
+8. [Citation](#citation)
+9. [Model Card Authors](#model-card-authors)
+10. [How To Get Started With the Model](#how-to-get-started-with-the-model)
 
 # Model Details
 
@@ -44,7 +45,11 @@ T5-Base is the checkpoint with 220 million parameters.
   - [Google's T5 Blog Post](https://ai.googleblog.com/2020/02/exploring-transfer-learning-with-t5.html) 
   - [GitHub Repo](https://github.com/google-research/text-to-text-transfer-transformer)
   - [Hugging Face T5 Docs](https://huggingface.co/docs/transformers/model_doc/t5)
-  
+ 
+# Usage
+
+Find below some example scripts on how to use the model in `transformers`:
+ 
 # Uses
 
 ## Direct Use and Downstream Use
