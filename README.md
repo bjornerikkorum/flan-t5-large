@@ -62,7 +62,7 @@ language:
 - no
 
 tags:
-- text2text-generation
+- text-generation
 
 datasets:
 - svakulenk0/qrecc
@@ -308,7 +308,3 @@ Carbon emissions can be estimated using the [Machine Learning Impact calculator]
   copyright = {Creative Commons Attribution 4.0 International}
 }
 ```
-
-# Model Card Authors
-
-This model card was written by the team at Hugging Face.
