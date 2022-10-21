@@ -100,7 +100,7 @@ license: apache-2.0
 
 # TL;DR
 
-If you already know T5, FLAN-T5 is just better at everything. 
+If you already know T5, FLAN-T5 is just better at everything. For the same number of parameters, these models have been fine-tuned on more than 1000 additional tasks covering also more languages.  
 As mentioned in the first few lines of the abstract : 
 >  Flan-PaLM 540B achieves state-of-the-art performance on several benchmarks, such as 75.2% on five-shot MMLU. We also publicly release Flan-T5 checkpoints,1 which achieve strong few-shot performance even compared to much larger models, such as PaLM 62B. Overall, instruction finetuning is a general method for improving the performance and usability of pretrained language models.
 
