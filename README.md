@@ -100,7 +100,10 @@ license: apache-2.0
 
 # TL;DR
 
+If you already know T5, FLAN-T5 is just better at everything! It is a **bigger model (+ XX parameters)** was trained on **more tasks (+ XX )**, **more data (+ XX tokens)** and **more languags (+ XX languages)**. As mentioned in the first few lines of the abstract : 
 >  Flan-PaLM 540B achieves state-of-the-art performance on several benchmarks, such as 75.2% on five-shot MMLU. We also publicly release Flan-T5 checkpoints,1 which achieve strong few-shot performance even compared to much larger models, such as PaLM 62B. Overall, instruction finetuning is a general method for improving the performance and usability of pretrained language models.
+
+**Disclaimer**: Content from **this** model card has been written by the Hugging Face team, and parts of it were copy pasted from the [T5 model card](https://huggingface.co/t5-large).
 
 # Model Details
 
@@ -256,12 +259,14 @@ According to the model card from the [original paper](https://arxiv.org/pdf/2210
 
 > These models are based on pretrained T5 (Raffel et al., 2020) and fine-tuned with instructions for better zero-shot and few-shot performance. There is one fine-tuned Flan model per T5 model size.
 
+The model has been trained on TPU v3 or TPU v4 pods, using [`t5x`](https://github.com/google-research/t5x) codebase together with [`jax`](https://github.com/google/jax).
+
 
 # Evaluation
 
 ## Testing Data, Factors & Metrics
 
-The developers evaluated the model on 88 tasks and 10 languages. See the table below for quantitative evaluation:
+The authors evaluated the model on various tasks covering several languages (1836 in total). See the table below for some quantitative evaluation:
 ![image.png](https://s3.amazonaws.com/moonup/production/uploads/1666361983550-62441d1d9fdefb55a0b7d12c.png)
 For full details, please check the [research paper](https://arxiv.org/pdf/2210.11416.pdf).
 
@@ -273,7 +278,7 @@ For full results for FLAN-T5-Large, see the [research paper](https://arxiv.org/p
 
 Carbon emissions can be estimated using the [Machine Learning Impact calculator](https://mlco2.github.io/impact#compute) presented in [Lacoste et al. (2019)](https://arxiv.org/abs/1910.09700).
 
-- **Hardware Type:** Google Cloud TPU Pods
+- **Hardware Type:** Google Cloud TPU Pods - TPU v3 or TPU v4  | Number of chips ≥ 4.
 - **Hours used:** More information needed
 - **Cloud Provider:** GCP
 - **Compute Region:** More information needed
