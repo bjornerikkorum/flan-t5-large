@@ -62,8 +62,6 @@ language:
 - no
 
 tags:
-- summarization
-- translation
 - text-generation
 
 datasets:
