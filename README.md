@@ -288,7 +288,7 @@ The model has been trained on TPU v3 or TPU v4 pods, using [`t5x`](https://githu
 ## Testing Data, Factors & Metrics
 
 The authors evaluated the model on various tasks covering several languages (1836 in total). See the table below for some quantitative evaluation:
-![image.png](https://s3.amazonaws.com/moonup/production/uploads/1666361983550-62441d1d9fdefb55a0b7d12c.png)
+![image.png](https://s3.amazonaws.com/moonup/production/uploads/1668072995230-62441d1d9fdefb55a0b7d12c.png)
 For full details, please check the [research paper](https://arxiv.org/pdf/2210.11416.pdf).
 
 ## Results 
