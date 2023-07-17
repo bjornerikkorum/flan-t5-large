@@ -47,7 +47,8 @@ license: apache-2.0
 
 # Model Card for FLAN-T5 large
 
-![model image](https://s3.amazonaws.com/moonup/production/uploads/1666363435475-62441d1d9fdefb55a0b7d12c.png)
+<img src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/transformers/model_doc/flan2_architecture.jpg"
+alt="drawing" width="600"/>
 
 #  Table of Contents
 
